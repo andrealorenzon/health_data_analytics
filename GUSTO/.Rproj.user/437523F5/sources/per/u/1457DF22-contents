@@ -1,0 +1,29 @@
+---
+title: "Gusto"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+Acute myocardial infarction (“heart attack”) is caused by the formation of a clot in oneof the coronary arteries that supply blood to the heart muscle. Acute MI is a major public health problem. Mortality is substantial in the period immediately after the event (and also during the years after surviving the initial  infarction).  Some  patients  die  before reaching  the  hospital.  Patients  seen  in  hospitals  are reported to have an average  mortality within 30 days around 6–15%, with  improvement over time.The risk of 30-day mortality strongly depends on various prognostic factors. In younger patients, risks are much lower than in older patients. Other patient demographics are also important (gender, length, weight), as well as the presence of risk factors (hypertension, diabetes, smoking, family history) and the history of previous cardiovascular events (previous MI, angina, stroke, bypass surgery). Relevant presenting characteristics includethe location of the infarction and the extent of ECG abnormalities. Very  important  is  the  acute  state  of  the  patientas  reflected  by  blood  pressure,  heart  rate,  and  left ventricular function (e.g., presence of shock).
+
+1) Build a descriptive table, comparing patients dead versus patients alive at 30 days. Insert also a column with the total population descriptive statistics.
+
+
+2) Perform univariable logistic regressionanalyses, of all candidate predictors for your model. [Optional:For Age is the linearity effect reasonable?How could you model alternativelythe age effect?]
+
+
+3) Build  a multivariable  logistic  regressionmodel  starting from the list of significant  predictors at univariable analyses. Pay attention to multicollinearity (same variables recoded in different ways). 
+
+
+4) Evaluate model performancein discriminationby means of the AUC under the ROC curve. Evaluate also model performance in terms of calibration. 
+
+
+5) Represent the estimated model by means of a nomogram (hint: R function nomogram {rms})
+
+
+6) Internally validate the estimated model (hint: R function  validate {rms})
+
+
+7) Optional:Setting  aside  the  interpretability  of  the  model, are  you  able  to  find  a  machine learning algorithm that predicts the risk of event with a similar (or better) performance than the logistic model?

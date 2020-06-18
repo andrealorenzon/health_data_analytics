@@ -1,0 +1,4 @@
+"0",""
+"0","sBP <- SMART$SYSTBP[!is.na(SMART$SYSTBP)]"
+"0","sH <- SMART$SYSTH[!is.na(SMART$SYSTH)]"
+"0","boxplot(sBP,sH)"

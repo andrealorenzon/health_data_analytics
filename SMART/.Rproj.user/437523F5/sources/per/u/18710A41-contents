@@ -1,0 +1,89 @@
+---
+title: "SMART"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+
+sBP <- SMART$SYSTBP[!is.na(SMART$SYSTBP)]
+sH <- SMART$SYSTH[!is.na(SMART$SYSTH)]
+boxplot(sBP,sH)
+```
+```{r}
+sBP <- SMART$SYSTBP[!is.na(SMART$SYSTBP)]
+sH  <- SMART$SYSTH[ !is.na(SMART$SYSTH)]
+hist(sBP,col=rgb(1, 0, 0, 0.25), main = "SYSTBP vs SYSTH")
+hist(sH, add=T, col=rgb(0, 0, 1, 0.25))
+legend("topright", c("SYSTBP", "SYSTH"), fill = c(rgb(1, 0, 0, 0.25),rgb(0, 0, 1, 0.25)))
+```
+
+```{r}
+t.test(sBP,sH)
+```
+# Diastolic Pressure
+
+
+```{r}
+
+BP <- SMART$DIASTBP[!is.na(SMART$DIASTBP)]
+H  <- SMART$DIASTH[ !is.na(SMART$DIASTH)]
+boxplot(BP,H)
+```
+
+```{r}
+BP <- SMART$DIASTBP[!is.na(SMART$DIASTBP)]
+H  <- SMART$DIASTH[ !is.na(SMART$DIASTH)]
+hist(BP,col=rgb(1, 0, 0, 0.25), main = "DIASTBP vs DIASTH")
+hist(H, add=T, col=rgb(0, 0, 1, 0.25))
+legend("topright", c("DIASTBP", "DIASTH"), fill = c(rgb(1, 0, 0, 0.25),rgb(0, 0, 1, 0.25)))
+```
+```{r}
+t.test(BP,H,alternative = "two.sided", var.equal = FALSE)
+```
+Rescaling 
+ 
+```{r}
+t.test(scale(BP),scale(H),alternative = "two.sided", var.equal = FALSE)
+```
+```{r}
+BP <- SMART$DIASTBP[!is.na(SMART$DIASTBP)]
+H  <- SMART$DIASTH[ !is.na(SMART$DIASTH)]
+H <- H  * 79.69/82.44
+hist(scale(BP),col=rgb(1, 0, 0, 0.25), main = "DIASTBP vs DIASTH")
+hist(scale(H), add=T, col=rgb(0, 0, 1, 0.25))
+legend("topright", c("DIASTBP", "DIASTH"), fill = c(rgb(1, 0, 0, 0.25),rgb(0, 0, 1, 0.25)))
+```
+```{r}
+library(tidyverse)
+SMART %>% 
+  filter(EVENT==1) %>% 
+  gather() %>% 
+  ggplot(aes(value)) +
+    facet_wrap(~ key, scales = "free") +
+    geom_histogram()
+```
+
+```{r}
+library(tidyverse)
+SMART %>% 
+  filter(EVENT==0) %>% 
+  gather() %>% 
+  ggplot(aes(value)) +
+    facet_wrap(~ key, scales = "free") +
+    geom_histogram()
+```
+
+```{r}
+feature = "TEVENT"
+noEvent = SMART %>% filter(EVENT==0) %>% select(feature)
+Event   = SMART %>% filter(EVENT==1) %>% select(feature)
+
+hist(noEvent,col=rgb(1, 0, 0, 0.25), main = feature)
+hist(event, add=T, col=rgb(0, 0, 1, 0.25))
+legend("topright", c("noEvent", "Event"), fill = c(rgb(1, 0, 0, 0.25),rgb(0, 0, 1, 0.25)))
+```
+

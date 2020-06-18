@@ -1,0 +1,9 @@
+"0","library(tidyverse)"
+"0","SMART %>% "
+"0","  filter(EVENT==0) %>% "
+"0","  gather() %>% "
+"0","  ggplot(aes(value)) +"
+"0","    facet_wrap(~ key, scales = ""free"") +"
+"0","    geom_histogram()"
+"2","attributes are not identical across measure variables;
+they will be dropped"

@@ -1,0 +1,4 @@
+"0","hist(noEvent,col=rgb(1, 0, 0, 0.25), main = ""DIASTBP vs DIASTH"")"
+"2","Error in hist.default(noEvent, col = rgb(1, 0, 0, 0.25), main = ""DIASTBP vs DIASTH"") : 
+  'x' must be numeric
+"

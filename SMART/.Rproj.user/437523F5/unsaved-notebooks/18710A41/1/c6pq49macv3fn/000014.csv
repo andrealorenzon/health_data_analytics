@@ -1,0 +1,4 @@
+"0","feature = ""TEVENT"""
+"0","noEvent = SMART %>% filter(EVENT==0) %>% select(feature)"
+"0","Event   = SMART %>% filter(EVENT==1) %>% select(feature)"
+"0","print(noEvent)"

@@ -1,0 +1,9 @@
+{
+    "path" : "~/health/SMART",
+    "sortOrder" : [
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}

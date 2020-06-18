@@ -1,0 +1,4 @@
+"0",""
+"0","BP <- SMART$DIASTBP[!is.na(SMART$DIASTBP)]"
+"0","H  <- SMART$DIASTH[ !is.na(SMART$DIASTH)]"
+"0","boxplot(BP,H)"
